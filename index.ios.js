@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import App from './App/App.js'
+import  { MainTabs } from './App/App.js'
 import {
   AppRegistry,
   StyleSheet,
@@ -13,12 +13,4 @@ import {
   View
 } from 'react-native';
 
-export default class ReactNativeDemo extends Component {
-  render() {
-    return (
-      <App/>
-    );
-  }
-}
-
-AppRegistry.registerComponent('ReactNativeDemo', () => ReactNativeDemo);
+AppRegistry.registerComponent('ReactNativeDemo', () => MainTabs);

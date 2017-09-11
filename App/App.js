@@ -109,7 +109,7 @@ const MainTabs = TabNavigator({
   tabBarPosition: 'bottom',
   // animationEnabled: true,
   // swipeEnabled: true,
-  // showIcon: true,
+  showIcon: true,
   tabBarOptions: {
     activeTintColor: '#50ca86',
   },

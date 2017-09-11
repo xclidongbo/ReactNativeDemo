@@ -17,7 +17,7 @@ export default class ReactNativeDemo extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to RN
+          Welcome to 刷新
         </Text>
         <Text style={styles.instructions}>
           To get started, edit index.android.js

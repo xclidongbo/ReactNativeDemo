@@ -6,7 +6,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  Dimensions,
 } from 'react-native';
 import {
   TabNavigator,
@@ -18,6 +19,7 @@ import Tab2 from './Tab2';
 import Tab3 from './Tab3';
 import Tab4 from './Tab4';
 
+var {width} = Dimensions.get('window')
 
 const Nav1 = StackNavigator({
   Nav1: {
@@ -61,8 +63,8 @@ const MainTabs = TabNavigator({
       title: '标签1',
       tabBarIcon: ({ tintColor, focused }) => (
         <Image
-          source={{uri: 'richeng'}}
-          style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
+          source={require('./Resource/Images/richeng.png')}
+          style={{width: 22, height: 22, resizeMode: 'contain', tintColor: tintColor}}
         />
       ),
     }
@@ -73,7 +75,7 @@ const MainTabs = TabNavigator({
       title: '标签2',
       tabBarIcon: ({ tintColor, focused }) => (
         <Image
-          source={{uri: 'renwu'}}
+          source={require('./Resource/Images/renwu.png')}
           style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
         />
       ),
@@ -85,7 +87,7 @@ const MainTabs = TabNavigator({
       title: '标签3',
       tabBarIcon: ({ tintColor, focused }) => (
         <Image
-          source={{uri: 'quanzi'}}
+          source={require('./Resource/Images/quanzi.png')}
           style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
         />
       ),
@@ -98,7 +100,7 @@ const MainTabs = TabNavigator({
       title: '标签4',
       tabBarIcon: ({ tintColor, focused }) => (
         <Image
-          source={{uri: 'wode'}}
+          source={require('./Resource/Images/wode.png')}
           style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
         />
       ),
@@ -107,11 +109,21 @@ const MainTabs = TabNavigator({
 
 },{
   tabBarPosition: 'bottom',
-  // animationEnabled: true,
-  // swipeEnabled: true,
-  showIcon: true,
+  animationEnabled: false,
+  swipeEnabled: false,
   tabBarOptions: {
+    showIcon: true,
     activeTintColor: '#50ca86',
+    indicatorStyle: {backgroundColor: 'blue'},
+    labelStyle: {
+    fontSize: 10,
+  },
+    tabStyle: {
+      width: width/4,
+    },
+    style: {
+      backgroundColor: 'blue',
+    },
   },
 });
 

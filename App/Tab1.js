@@ -16,7 +16,7 @@ export default class Tab1 extends Component {
       <View style={styles.container}>
         <Image
           style={styles.imageStyle}
-          source={{uri: 'richeng'}}
+          source={require('./Resource/Images/quanzi.png')}
         />
         <Text>Tab1</Text>
       </View>

@@ -25,7 +25,7 @@ const Nav1 = StackNavigator({
   Nav1: {
     screen: Tab1,
     navigationOptions: {
-      headerTitle: '标签1',
+      headerTitle: '常用控件',
     }
   },
 });
@@ -122,7 +122,7 @@ const MainTabs = TabNavigator({
       width: width/4,
     },
     style: {
-      backgroundColor: 'blue',
+      // backgroundColor: 'blue',
     },
   },
 });

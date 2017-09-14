@@ -7,31 +7,60 @@ import {
   Text,
   View,
   Image,
+  FlatList,
+  Dimensions,
 } from 'react-native';
 
 
+const {width, height}=Dimensions.get('window');
+
 export default class Tab1 extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      data: [
+        {key: 'FlatList长列表'},
+        {key: 'b'},
+        {key: 'c'},
+        {key: 'd'},
+        {key: 'e'},
+        {key: 'f'},
+      ]
+    };
+  }
+  separator=()=>{
+    return <View style={styles.line}></View>;
+  }
+  renderItem=({item})=>{
+    return <Text style={styles.item}>{item.key}</Text>;
+  }
+
   render(){
     return(
       <View style={styles.container}>
-        <Image
-          style={styles.imageStyle}
-          source={require('./Resource/Images/quanzi.png')}
+        <FlatList
+          data={this.state.data}
+          renderItem={this.renderItem}
+          ItemSeparatorComponent={this.separator}
         />
-        <Text>Tab1</Text>
       </View>
-
     );
   }
 }
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
-    alignItems: 'center'
+    flex: 1,
+    paddingTop: 10
   },
-  imageStyle: {
-    resizeMode: 'contain',
-    width: 22,
-    height: 22,
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+  line: {
+    marginHorizontal: 10,
+    height: 1,
+    backgroundColor: 'lightgrey'
   }
 });

@@ -32,7 +32,12 @@ export default class Tab1 extends Component {
     return <View style={styles.line}></View>;
   }
   renderItem=({item})=>{
-    return <Text style={styles.item}>{item.key}</Text>;
+    return (
+      <View >
+        <Text style={styles.item}>{item.key}
+        </Text>
+      </View>
+    );
   }
 
   render(){

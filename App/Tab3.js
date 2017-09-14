@@ -5,14 +5,29 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  TouchableHighlight,
 } from 'react-native';
 
 
 export default class Tab3 extends Component {
+
+  onPressClick(){
+    console.log(333);
+  }
+
   render(){
     return(
-      <Text>Tab1</Text>
+      <TouchableHighlight
+        activeOpacity={0.5}
+        underlayColor='#dddddd'
+        onPress={()=>this.onPressClick()}>
+        <View >
+          <Text>
+            1111111
+          </Text>
+        </View>
+      </TouchableHighlight>
     );
   }
 }

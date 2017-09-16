@@ -39,7 +39,6 @@ export default class Tab1 extends Component {
       </View>
     );
   }
-
   render(){
     return(
       <View style={styles.container}>
@@ -47,6 +46,7 @@ export default class Tab1 extends Component {
           data={this.state.data}
           renderItem={this.renderItem}
           ItemSeparatorComponent={this.separator}
+          keyExtractor={(item, index) => index}
         />
       </View>
     );

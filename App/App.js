@@ -20,6 +20,9 @@ import Tab1 from './Tab1';
 import Tab2 from './Tab2';
 import Tab3 from './Tab3';
 import Tab4 from './Tab4';
+import Tab1Detail from './Tab1Detail';
+import Tab2Detail from './Tab2Detail';
+import SendValue2 from './SendValue2';
 
 
 var {width} = Dimensions.get('window');
@@ -31,6 +34,10 @@ const Nav1 = StackNavigator({
       headerTitle: '常用控件Demo',
     }
   },
+  Tab1Detail: {
+    screen: Tab1Detail,
+  }
+
 });
 
 const Nav2 = StackNavigator({
@@ -41,6 +48,12 @@ const Nav2 = StackNavigator({
       // header: null,//隐藏header
     }
   },
+  Tab2Detail: {
+    screen: Tab2Detail,
+  },
+  SendValue2: {
+    screen: SendValue2,
+  }
 });
 const Nav3 = StackNavigator({
   Nav2: {
@@ -121,7 +134,7 @@ const MainTabs = TabNavigator({
 
 },{
   tabBarPosition: 'bottom',
-  animationEnabled: false,
+  animationEnabled: true,
   swipeEnabled: false,
   tabBarOptions: {
     showIcon: true,

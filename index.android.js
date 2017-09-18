@@ -5,7 +5,7 @@
  */
 
 import React, { Component } from 'react';
-import  { MainTabs } from './App/App.js'
+import  { MainTabs } from './src/components/project/App';
 import {
   AppRegistry,
   StyleSheet,

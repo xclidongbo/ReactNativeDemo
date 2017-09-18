@@ -19,7 +19,7 @@ export default class Tab2 extends React.PureComponent {
     this.state = {
       data: [
         {title: '正向传值(React Navigation)',content: '我是值'},
-        {title: '父子组件传值',content: '我是值'},
+        {title: '父子组件传值和方法',content: ''},
         {title: 'c',content: '我是值'},
         {title: 'd',content: '我是值'},
         {title: 'e',content: '我是值'},
@@ -32,7 +32,7 @@ export default class Tab2 extends React.PureComponent {
     return <View style={styles.lineStyle}></View>;
   }
   onPressClick(item, index){
-    console.log(index);
+    // console.log(index);
     let navigation = this.props.navigation;
 
     switch (index) {

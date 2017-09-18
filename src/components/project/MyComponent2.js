@@ -12,19 +12,21 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-import Icon from 'react-native-vector-icons/FontAwesome';
 
-
-export default class MyComponent extends Component {
+export default class MyComponent2 extends Component {
   static defaultProps = {
-    imgName: '',
-    imgSize: 30,
-    imgTintColor: 'lightgray',
+    title: '这是标题',
     content: '这是内容',
   }
 
   onPressClick=()=>{
-    this.props.test('这是子组件的回调参数');
+    console.log('子组件2的点击方法');
+  }
+  constructor(props){
+    super(props);
+    this.state = {
+      name: '这是子组件向父组件传值的测试',
+    };
   }
 
   render(){
@@ -36,12 +38,9 @@ export default class MyComponent extends Component {
         <View
           style={styles.container}
         >
-          <Icon
-            name={props.imgName}
-            size={props.imgSize}
-            color={props.imgTintColor}
-            style={styles.imageStyle}
-          />
+          <Text style={styles.titleStyle}>
+            {this.props.title}
+          </Text>
           <Text style={styles.contentStyle}>
             {props.content}
           </Text>
@@ -52,20 +51,20 @@ export default class MyComponent extends Component {
   }
 }
 
+
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     backgroundColor: 'yellow',
-    marginHorizontal: 5,
   },
-  imageStyle: {
-    marginLeft: 5,
+  titleStyle: {
+    marginTop: 5,
     // backgroundColor: 'red',
   },
   contentStyle: {
-    flex: 1,
-    marginLeft: 5,
+    marginTop: 5,
     // backgroundColor: 'blue',
   }
 });

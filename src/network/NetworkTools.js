@@ -26,7 +26,7 @@
 //
 export const postFetch=(url, params)=>{
   let formData = new FormData();
-  
+
   for (let [key,value] of Object.entries(params)) {
     formData.append(key, value);
   }
@@ -35,7 +35,7 @@ export const postFetch=(url, params)=>{
     fetch(url, {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded',
+        // 'Content-Type': 'application/x-www-form-urlencoded',
       },
       body: formData,
     })
@@ -48,10 +48,11 @@ export const postFetch=(url, params)=>{
         }
       })
       .then(responseJson=>{
-        // console.log(responseJson);
+        console.log(responseJson);
         resolve(responseJson);
       })
       .catch((error)=>{
+        console.log(error);
         reject(error);
       });
   });

@@ -8,8 +8,9 @@ import forge from 'node-forge';
 const HTTPS_SERVER_HOST_URL = ()=>{
   if (__DEV__) {
     //debug 模式
-    return 'https://test-api.zoomdu.com';
-    // return 'https://api.zoomdu.com';
+    // return 'https://test-api.zoomdu.com';
+    return 'https://api.zoomdu.com';
+    // return 'http://192.168.1.3:7080';
   } else {
     //release 模式
     return 'https://api.zoomdu.com';

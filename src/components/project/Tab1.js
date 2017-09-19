@@ -11,6 +11,8 @@ import {
   Dimensions,
 } from 'react-native';
 
+// import {postFetch} from '../../network/NetworkTools';
+import {requestNetworkForGuider} from '../../network/NetworkAPI'
 
 const {width, height}=Dimensions.get('window');
 
@@ -50,6 +52,16 @@ export default class Tab1 extends Component {
         />
       </View>
     );
+  }
+  componentDidMount() {
+    // let url = 'https://api.zoomdu.com/api/guide/getGuide.do?k=796451&r=1505725000.718974&sign=30944096c74b7554e27ace1bedb4e58f';
+    let params = {id:'42', token:'b64f89f163fd095d554c87df5412fe8d'};
+    requestNetworkForGuider(params).then((json)=>{
+      console.log('json: '+ JSON.stringify(json, null, 2));
+    },(error)=>{
+      console.log('error: ' + error);
+    });
+
   }
 }
 

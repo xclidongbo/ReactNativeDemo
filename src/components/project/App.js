@@ -20,10 +20,10 @@ import Tab1 from './Tab1';
 import Tab2 from './Tab2';
 import Tab3 from './Tab3';
 import Tab4 from './Tab4';
-import Tab1Detail from './Tab1Detail';
-import Tab2Detail from './Tab2Detail';
-import SendValue2 from './SendValue2';
-
+import Tab1Detail from './Tab1/Tab1Detail';
+import Tab2Detail from './Tab2/Tab2Detail';
+import SendValue2 from './Tab2/SendValue2';
+import FetchRequest from './Tab3/FetchRequest'
 
 var {width} = Dimensions.get('window');
 
@@ -59,9 +59,13 @@ const Nav3 = StackNavigator({
   Nav2: {
     screen: Tab3,
     navigationOptions: {
-      headerTitle: '标签1',
+      headerTitle: 'Demo',
     }
   },
+  FetchRequest: {
+    screen: FetchRequest,
+  },
+  
 });
 const Nav4 = StackNavigator({
   Nav2: {
@@ -73,7 +77,7 @@ const Nav4 = StackNavigator({
 });
 
 var IconName = (iconName, tintColor)=>{
-  return <Icon name={iconName} size={30} color={tintColor}/>;
+  return <Icon name={iconName} size={22} color={tintColor}/>;
 };
 
 const MainTabs = TabNavigator({
@@ -100,20 +104,20 @@ const MainTabs = TabNavigator({
         //   source={require('./Resource/Images/renwu.png')}
         //   style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
         // />
-        IconName('angle-right', tintColor)
+        IconName('send-o', tintColor)
       ),
     }
   },
   Tab3: {
     screen: Nav3,
     navigationOptions: {
-      title: '标签3',
+      title: 'Demo',
       tabBarIcon: ({ tintColor, focused }) => (
         // <Image
         //   source={require('./Resource/Images/quanzi.png')}
         //   style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
         // />
-        IconName('angle-right', tintColor)
+        IconName('microchip', tintColor)
       ),
       // tabBarVisible: false,隐藏tabBar
     }
@@ -127,7 +131,7 @@ const MainTabs = TabNavigator({
         //   source={require('./Resource/Images/wode.png')}
         //   style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
         // />
-        IconName('angle-right', tintColor)
+        IconName('user-circle-o', tintColor)
       ),
     }
   },

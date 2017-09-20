@@ -10,7 +10,6 @@ const HTTPS_SERVER_HOST_URL = ()=>{
     //debug 模式
     // return 'https://test-api.zoomdu.com';
     return 'https://api.zoomdu.com';
-    // return 'http://192.168.1.3:7080';
   } else {
     //release 模式
     return 'https://api.zoomdu.com';
@@ -31,7 +30,8 @@ export const HTTPS_SERVER_URL = (interfaceTypes='')=>{
   let kSignMd5 = md.digest().toHex();
 
   let serverUrl = HTTPS_SERVER_HOST_URL()+interfaceTypes+'?k='+rkey+'&r='+dateStr+'&sign='+kSignMd5;
-  console.log('serverUrl: '+  serverUrl);
-
   return serverUrl;
 };
+
+
+export const GET_GUIDE = '/api/guide/getGuide.do';

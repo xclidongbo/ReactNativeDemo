@@ -9,10 +9,13 @@ import {
   Image,
   FlatList,
   Dimensions,
+  TouchableHighlight,
 } from 'react-native';
 
+import Icon from 'react-native-vector-icons/FontAwesome';
 // import {postFetch} from '../../network/NetworkTools';
 import {requestNetworkForGuider} from '../../network/NetworkAPI'
+
 
 const {width, height}=Dimensions.get('window');
 
@@ -21,24 +24,50 @@ export default class Tab1 extends Component {
     super(props);
     this.state = {
       data: [
-        {key: 'FlatList长列表'},
-        {key: 'b'},
-        {key: 'c'},
-        {key: 'd'},
-        {key: 'e'},
-        {key: 'f'},
+        {title: 'FlatList长列表'},
+        {title: 'b'},
+        {title: 'c'},
+        {title: 'd'},
+        {title: 'e'},
+        {title: 'f'},
       ]
     };
   }
   separator=()=>{
-    return <View style={styles.line}></View>;
+    return <View style={styles.lineStyle}></View>;
   }
-  renderItem=({item})=>{
+
+  onPressClick=(item, index)=>{
+    let navigation = this.props.navigation;
+
+    switch (index) {
+    // case 1:
+    //   return navigation.navigate('SendValue2', {name: item.content});
+    //   // break;
+    default:
+      //这里,将数组中的key值传递到下一页(Tab2Detail).
+      return navigation.navigate('Tab1Detail', {name: item.title});
+    }
+  }
+
+  renderItem=({item, index})=>{
     return (
-      <View >
-        <Text style={styles.item}>{item.key}
-        </Text>
-      </View>
+      <TouchableHighlight
+        onPress={()=>this.onPressClick(item, index)}
+        activeOpacity={0.5}
+        underlayColor='lightgray'>
+        <View style={styles.itemStyle}>
+          <Text style={styles.textStyle}>
+            {item.title}
+          </Text>
+          <Icon
+            name='angle-right'
+            size={30}
+            color='#999'
+            style={styles.indicatorStyle}
+          />
+        </View>
+      </TouchableHighlight>
     );
   }
   render(){
@@ -54,13 +83,18 @@ export default class Tab1 extends Component {
     );
   }
   componentDidMount() {
-    // let url = 'https://api.zoomdu.com/api/guide/getGuide.do?k=796451&r=1505725000.718974&sign=30944096c74b7554e27ace1bedb4e58f';
-    let params = {id:'86', token:'cf68bb85657b932dae624ee3d188718f'};
+
+    let num = 86;
+    let token = 'cf68bb85657b932dae624ee3d188718f';
+    let params = {id: num, token: token };
+
     requestNetworkForGuider(params).then((json)=>{
-      console.log('json: '+ JSON.stringify(json, null, 2));
-    },(error)=>{
-      console.log('error: ' + error);
-    });
+      console.log('responseJson: '+ JSON.stringify(json, null, 2));
+    })
+      .catch((error)=>{
+        console.error(error);
+        // console.log('error: ' + error);
+      });
 
   }
 }
@@ -68,16 +102,24 @@ export default class Tab1 extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 10
   },
-  item: {
-    padding: 10,
-    fontSize: 18,
+  itemStyle: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     height: 44,
   },
-  line: {
+  lineStyle: {
     marginHorizontal: 10,
     height: 1,
     backgroundColor: 'lightgrey'
-  }
+  },
+  textStyle: {
+    marginLeft: 20,
+    fontSize: 18,
+  },
+  indicatorStyle: {
+    marginRight: 20,
+  },
+
 });

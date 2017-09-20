@@ -10,8 +10,8 @@ import {
   Button,
   TouchableHighlight,
 } from 'react-native';
-import MyComponent from './MyComponent';
-import MyComponent2 from './MyComponent2';
+import MyComponent from '../../common/MyComponent';
+import MyComponent2 from '../../common/MyComponent2';
 
 export default class Tab2Detail extends React.Component {
   static navigationOptions = ({ navigation }) => {

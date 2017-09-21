@@ -24,6 +24,7 @@ import Tab1Detail from './Tab1/Tab1Detail';
 import Tab2Detail from './Tab2/Tab2Detail';
 import SendValue2 from './Tab2/SendValue2';
 import FetchRequest from './Tab3/FetchRequest'
+import MarginAndPadding from './Tab3/MarginAndPadding'
 
 var {width} = Dimensions.get('window');
 
@@ -65,8 +66,14 @@ const Nav3 = StackNavigator({
   FetchRequest: {
     screen: FetchRequest,
   },
-  
-});
+  MarginAndPadding: {
+    screen: MarginAndPadding,
+  },
+},
+// {
+//   mode: 'modal',
+// }
+);
 const Nav4 = StackNavigator({
   Nav2: {
     screen: Tab4,
@@ -80,7 +87,7 @@ var IconName = (iconName, tintColor)=>{
   return <Icon name={iconName} size={22} color={tintColor}/>;
 };
 
-const MainTabs = TabNavigator({
+export const MainTabs = TabNavigator({
   Tab1: {
     screen: Nav1,
     navigationOptions: {
@@ -100,10 +107,6 @@ const MainTabs = TabNavigator({
     navigationOptions: {
       title: '传值',
       tabBarIcon: ({ tintColor, focused }) => (
-        // <Image
-        //   source={require('./Resource/Images/renwu.png')}
-        //   style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
-        // />
         IconName('send-o', tintColor)
       ),
     }
@@ -113,10 +116,6 @@ const MainTabs = TabNavigator({
     navigationOptions: {
       title: 'Demo',
       tabBarIcon: ({ tintColor, focused }) => (
-        // <Image
-        //   source={require('./Resource/Images/quanzi.png')}
-        //   style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
-        // />
         IconName('microchip', tintColor)
       ),
       // tabBarVisible: false,隐藏tabBar
@@ -127,10 +126,6 @@ const MainTabs = TabNavigator({
     navigationOptions: {
       title: '标签4',
       tabBarIcon: ({ tintColor, focused }) => (
-        // <Image
-        //   source={require('./Resource/Images/wode.png')}
-        //   style={{width: 22, height: 22, resizeMode: 'contain',tintColor: tintColor}}
-        // />
         IconName('user-circle-o', tintColor)
       ),
     }
@@ -155,5 +150,3 @@ const MainTabs = TabNavigator({
     },
   },
 });
-
-export { MainTabs } ;

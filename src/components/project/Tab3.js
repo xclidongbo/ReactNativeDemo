@@ -26,7 +26,7 @@ export default class Tab3 extends Component {
     this.state = {
       data: [
         {title: 'Fetch网络请求'},
-        {title: 'b'},
+        {title: 'Margin和Padding区别'},
         {title: 'c'},
         {title: 'd'},
         {title: 'e'},
@@ -42,12 +42,14 @@ export default class Tab3 extends Component {
     let navigation = this.props.navigation;
 
     switch (index) {
-    // case 1:
-    //   return navigation.navigate('SendValue2', {name: item.content});
-    //   // break;
+    case 0:
+      return navigation.navigate('FetchRequest', {name: item.title});
+      //break;
+    case 1:
+      return navigation.navigate('MarginAndPadding', {name: item.title});
     default:
       //这里,将数组中的key值传递到下一页(Tab2Detail).
-      return navigation.navigate('FetchRequest', {name: item.title});
+      // return navigation.navigate('FetchRequest', {name: item.title});
     }
   }
 
@@ -121,6 +123,5 @@ const styles = StyleSheet.create({
   },
   indicatorStyle: {
     marginRight: 20,
-  },
-
+  }
 });

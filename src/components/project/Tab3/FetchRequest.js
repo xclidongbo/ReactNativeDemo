@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 
 
-import {requestNetworkForGuider} from '../../../network/NetworkAPI'
+import {requestNetworkForGuider} from '../../../network/NetworkAPI';
 
 
 export default class FetchRequest extends Component {

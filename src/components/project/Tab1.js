@@ -82,21 +82,21 @@ export default class Tab1 extends Component {
       </View>
     );
   }
-  componentDidMount() {
-
-    let num = 86;
-    let token = 'cf68bb85657b932dae624ee3d188718f';
-    let params = {id: num, token: token };
-
-    requestNetworkForGuider(params).then((json)=>{
-      console.log('responseJson: '+ JSON.stringify(json, null, 2));
-    })
-      .catch((error)=>{
-        console.error(error);
-        // console.log('error: ' + error);
-      });
-
-  }
+  // componentDidMount() {
+  //
+  //   let num = 86;
+  //   let token = 'cf68bb85657b932dae624ee3d188718f';
+  //   let params = {id: num, token: token };
+  //
+  //   requestNetworkForGuider(params).then((json)=>{
+  //     console.log('responseJson: '+ JSON.stringify(json, null, 2));
+  //   })
+  //     .catch((error)=>{
+  //       console.error(error);
+  //       // console.log('error: ' + error);
+  //     });
+  //
+  // }
 }
 
 const styles = StyleSheet.create({

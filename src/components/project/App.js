@@ -15,6 +15,7 @@ import {
 } from 'react-navigation';
 
 import Icon from 'react-native-vector-icons/FontAwesome';
+import '../utils/Global';
 
 import Tab1 from './Tab1';
 import Tab2 from './Tab2';
@@ -23,8 +24,9 @@ import Tab4 from './Tab4';
 import Tab1Detail from './Tab1/Tab1Detail';
 import Tab2Detail from './Tab2/Tab2Detail';
 import SendValue2 from './Tab2/SendValue2';
-import FetchRequest from './Tab3/FetchRequest'
-import MarginAndPadding from './Tab3/MarginAndPadding'
+import FetchRequest from './Tab3/FetchRequest';
+import MarginAndPadding from './Tab3/MarginAndPadding';
+import StoragePage from './Tab3/StoragePage';
 
 var {width} = Dimensions.get('window');
 
@@ -69,6 +71,9 @@ const Nav3 = StackNavigator({
   MarginAndPadding: {
     screen: MarginAndPadding,
   },
+  StoragePage: {
+    screen: StoragePage,
+  }
 },
 // {
 //   mode: 'modal',
@@ -83,9 +88,14 @@ const Nav4 = StackNavigator({
   },
 });
 
-var IconName = (iconName, tintColor)=>{
+const IconName = (iconName, tintColor)=>{
   return <Icon name={iconName} size={22} color={tintColor}/>;
 };
+
+const StackOptions = ({navigation})=>{
+  let {state, goBack} = navigation;
+
+}
 
 export const MainTabs = TabNavigator({
   Tab1: {

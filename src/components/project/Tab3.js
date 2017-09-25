@@ -15,7 +15,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import {postFetch} from '../../network/NetworkTools';
-import {requestNetworkForGuider} from '../../network/NetworkAPI'
+// import {requestNetworkForGuider} from '../../network/NetworkAPI'
 
 
 const {width, height}=Dimensions.get('window');
@@ -27,7 +27,7 @@ export default class Tab3 extends Component {
       data: [
         {title: 'Fetch网络请求'},
         {title: 'Margin和Padding区别'},
-        {title: 'c'},
+        {title: 'Storage存储'},
         {title: 'd'},
         {title: 'e'},
         {title: 'f'},
@@ -47,6 +47,8 @@ export default class Tab3 extends Component {
       //break;
     case 1:
       return navigation.navigate('MarginAndPadding', {name: item.title});
+    case 2:
+      return navigation.navigate('StoragePage', {name: item.title});
     default:
       //这里,将数组中的key值传递到下一页(Tab2Detail).
       // return navigation.navigate('FetchRequest', {name: item.title});
@@ -85,21 +87,21 @@ export default class Tab3 extends Component {
       </View>
     );
   }
-  componentDidMount() {
-
-    let num = 86;
-    let token = 'cf68bb85657b932dae624ee3d188718f';
-    let params = {id: num, token: token };
-
-    requestNetworkForGuider(params).then((json)=>{
-      console.log('responseJson: '+ JSON.stringify(json, null, 2));
-    })
-      .catch((error)=>{
-        console.error(error);
-        // console.log('error: ' + error);
-      });
-
-  }
+  // componentDidMount() {
+  //
+  //   let num = 86;
+  //   let token = 'cf68bb85657b932dae624ee3d188718f';
+  //   let params = {id: num, token: token };
+  //
+  //   requestNetworkForGuider(params).then((json)=>{
+  //     console.log('responseJson: '+ JSON.stringify(json, null, 2));
+  //   })
+  //     .catch((error)=>{
+  //       console.error(error);
+  //       // console.log('error: ' + error);
+  //     });
+  //
+  // }
 }
 
 const styles = StyleSheet.create({

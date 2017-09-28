@@ -27,6 +27,7 @@ import SendValue2 from './Tab2/SendValue2';
 import FetchRequest from './Tab3/FetchRequest';
 import MarginAndPadding from './Tab3/MarginAndPadding';
 import StoragePage from './Tab3/StoragePage';
+import NativePage from './Tab3/NativePage';
 
 var {width} = Dimensions.get('window');
 
@@ -73,6 +74,12 @@ const Nav3 = StackNavigator({
   },
   StoragePage: {
     screen: StoragePage,
+  },
+  NativePage: {
+    screen: NativePage,
+    // navigationOptions: {
+    //   tabBarVisible: false,
+    // }
   }
 },
 // {

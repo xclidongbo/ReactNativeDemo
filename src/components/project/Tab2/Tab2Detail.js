@@ -10,14 +10,12 @@ import {
   Button,
 } from 'react-native';
 
-
-
 export default class Tab2Detail extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
       title: params.name,
-      tabBarVisible: false,
+      tabBarVisible: false
       // headerRight: (
       //   <View>
       //     <Button
@@ -28,11 +26,12 @@ export default class Tab2Detail extends React.Component {
     };
   };
 
-  render(){
+
+  render() {
     const { params } = this.props.navigation.state;
     return(
       <Text style={{padding: 10,flex: 1}}>
-        {'传值: ' + params.name}
+        { '传值: ' + params.name }
       </Text>
     );
   }

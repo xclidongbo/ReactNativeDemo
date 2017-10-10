@@ -22,7 +22,7 @@ export default class FetchRequest extends Component {
   static navigationOptions = ({ navigation }) => {
     const { params } = navigation.state;
     return {
-      title: params.name,
+      title: params.title,
       tabBarVisible: false,
     };
   };

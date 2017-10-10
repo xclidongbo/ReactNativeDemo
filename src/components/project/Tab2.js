@@ -1,4 +1,5 @@
 
+<script src="http://localhost:8081"></script>
 
 import React, { Component } from 'react';
 import {
@@ -19,7 +20,7 @@ export default class Tab2 extends React.PureComponent {
     this.state = {
       data: [
         {title: '正向传值(React Navigation)',content: '我是值'},
-        {title: '父子组件传值和方法',content: ''},
+        {title: '父子组件传值和方法', content: ''},
         {title: 'c',content: '我是值'},
         {title: 'd',content: '我是值'},
         {title: 'e',content: '我是值'},
@@ -31,7 +32,12 @@ export default class Tab2 extends React.PureComponent {
   separator=()=>{
     return <View style={styles.lineStyle}></View>;
   }
+  // callbackFun = (event)=>{
+  //   console.log('第一页: ' + event);
+  // }
+
   onPressClick(item, index){
+
     // console.log(index);
     let navigation = this.props.navigation;
 

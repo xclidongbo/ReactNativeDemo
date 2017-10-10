@@ -14,7 +14,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import {postFetch} from '../../network/NetworkTools';
-import {requestNetworkForGuider} from '../../network/NetworkAPI'
+// import {requestNetworkForGuider} from '../../network/NetworkAPI'
 
 
 const {width, height}=Dimensions.get('window');

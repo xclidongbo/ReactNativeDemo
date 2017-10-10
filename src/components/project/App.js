@@ -83,9 +83,11 @@ const Nav4 = StackNavigator({
   },
 });
 
-var IconName = (iconName, tintColor)=>{
+const IconName = (iconName, tintColor)=>{
   return <Icon name={iconName} size={22} color={tintColor}/>;
 };
+
+
 
 export const MainTabs = TabNavigator({
   Tab1: {
@@ -137,16 +139,18 @@ export const MainTabs = TabNavigator({
   swipeEnabled: false,
   tabBarOptions: {
     showIcon: true,
-    activeTintColor: '#50ca86',
-    indicatorStyle: {backgroundColor: 'blue'},
+    // activeTintColor: '#50ca86',
+
     labelStyle: {
       fontSize: 10,
     },
     tabStyle: {
       width: width/4,
     },
-    style: {
-      // backgroundColor: 'blue',
-    },
+
+    indicatorStyle :{
+        height:0, // android 中TabBar下面会显示一条线，高度设为 0 后就不显示线了,
+        // backgroundColor: 'blue',
+    }
   },
 });

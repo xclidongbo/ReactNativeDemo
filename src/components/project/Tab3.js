@@ -15,7 +15,7 @@ import {
 
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import {postFetch} from '../../network/NetworkTools';
-import {requestNetworkForGuider} from '../../network/NetworkAPI'
+// import {requestNetworkForGuider} from '../../network/NetworkAPI'
 
 
 const {width, height}=Dimensions.get('window');
@@ -27,8 +27,8 @@ export default class Tab3 extends Component {
       data: [
         {title: 'Fetch网络请求'},
         {title: 'Margin和Padding区别'},
-        {title: 'c'},
-        {title: 'd'},
+        {title: 'Storage存储'},
+        {title: '调用原生组件'},
         {title: 'e'},
         {title: 'f'},
       ]
@@ -43,10 +43,15 @@ export default class Tab3 extends Component {
 
     switch (index) {
     case 0:
-      return navigation.navigate('FetchRequest', {name: item.title});
+      return navigation.navigate('FetchRequest', {title: item.title});
       //break;
     case 1:
-      return navigation.navigate('MarginAndPadding', {name: item.title});
+      return navigation.navigate('MarginAndPadding', {title: item.title});
+    case 2:
+      return navigation.navigate('StoragePage', {title: item.title});
+    case 3:
+      if (iOS) return navigation.navigate('NativePage', {title: item.title});
+      break;
     default:
       //这里,将数组中的key值传递到下一页(Tab2Detail).
       // return navigation.navigate('FetchRequest', {name: item.title});

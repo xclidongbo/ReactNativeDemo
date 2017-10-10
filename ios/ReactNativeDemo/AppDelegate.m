@@ -28,8 +28,13 @@
 
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
+  
+  UINavigationController * nav = [[UINavigationController alloc] init];
+  [nav addChildViewController:rootViewController];
+  nav.navigationBarHidden = YES;
+  
   rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
+  self.window.rootViewController = nav;
   [self.window makeKeyAndVisible];
   return YES;
 }

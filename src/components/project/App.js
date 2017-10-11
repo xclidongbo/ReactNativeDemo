@@ -28,6 +28,8 @@ import FetchRequest from './Tab3/FetchRequest';
 import MarginAndPadding from './Tab3/MarginAndPadding';
 import StoragePage from './Tab3/StoragePage';
 import NativePage from './Tab3/NativePage';
+import CommonSplist from './Tab3/CommonSplit';
+import getSlideFromRightTransition from 'react-navigation-slide-from-right-transition';
 
 var {width} = Dimensions.get('window');
 
@@ -42,6 +44,8 @@ const Nav1 = StackNavigator({
     screen: Tab1Detail,
   }
 
+},{
+  transitionConfig: getSlideFromRightTransition
 });
 
 const Nav2 = StackNavigator({
@@ -58,6 +62,8 @@ const Nav2 = StackNavigator({
   SendValue2: {
     screen: SendValue2,
   }
+},{
+  transitionConfig: getSlideFromRightTransition
 });
 const Nav3 = StackNavigator({
   Nav2: {
@@ -80,11 +86,17 @@ const Nav3 = StackNavigator({
     // navigationOptions: {
     //   tabBarVisible: false,
     // }
+  },
+  CommonSplist: {
+    screen: CommonSplist
   }
 },
 // {
 //   mode: 'modal',
 // }
+{
+  transitionConfig: getSlideFromRightTransition
+}
 );
 const Nav4 = StackNavigator({
   Nav2: {
@@ -93,6 +105,8 @@ const Nav4 = StackNavigator({
       headerTitle: '标签1',
     }
   },
+},{
+  transitionConfig: getSlideFromRightTransition
 });
 
 const IconName = (iconName, tintColor)=>{
@@ -154,16 +168,18 @@ export const MainTabs = TabNavigator({
   swipeEnabled: false,
   tabBarOptions: {
     showIcon: true,
-    activeTintColor: '#50ca86',
-    indicatorStyle: {backgroundColor: 'blue'},
+    // activeTintColor: '#50ca86',
+
     labelStyle: {
       fontSize: 10,
     },
     tabStyle: {
       width: width/4,
     },
-    style: {
+
+    indicatorStyle :{
+      height:0, // android 中TabBar下面会显示一条线，高度设为 0 后就不显示线了,
       // backgroundColor: 'blue',
-    },
+    }
   },
 });

@@ -29,7 +29,7 @@ export default class Tab3 extends Component {
         {title: 'Margin和Padding区别'},
         {title: 'Storage存储'},
         {title: '调用原生组件'},
-        {title: 'e'},
+        {title: '拆分技巧'},
         {title: 'f'},
       ]
     };
@@ -50,7 +50,10 @@ export default class Tab3 extends Component {
     case 2:
       return navigation.navigate('StoragePage', {title: item.title});
     case 3:
-      return navigation.navigate('NativePage', {title: item.title});
+      if (iOS) return navigation.navigate('NativePage', {title: item.title});
+      break;
+    case 4:
+      return navigation.navigate('CommonSplist', {title: item.title});
     default:
       //这里,将数组中的key值传递到下一页(Tab2Detail).
       // return navigation.navigate('FetchRequest', {name: item.title});

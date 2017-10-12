@@ -6,9 +6,12 @@ import {
   View,
   Image,
   Dimensions,
-  ScrollView
+  ScrollView,
+  TouchableOpacity
 } from 'react-native';
 import MyComponent2 from '../../common/MyComponent2'
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 //无状态组件
 const TestItem = ({title})=>{
@@ -20,7 +23,20 @@ const TestItem = ({title})=>{
 }
 
 export default class CommonSplist extends Component {
-
+  static navigationOptions = ({ navigation }) => ({
+    tabBarVisible: false,
+    headerLeft: (
+      <TouchableOpacity onPress={()=>navigation.goBack()}>
+        <Icon
+          name='backward'
+          size={30}
+          color='#999'
+          style={styles.backBtnStyle}
+        />
+      </TouchableOpacity>
+    )
+  });
+  
   constructor(props){
     super(props);
     this.state = {
@@ -90,6 +106,9 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     marginVertical: 2,
     backgroundColor: 'orange'
+  },
+  backBtnStyle: {
+    marginLeft: 10,
   }
 
 });

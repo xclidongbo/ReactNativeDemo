@@ -16,9 +16,16 @@ import {
 import Icon from 'react-native-vector-icons/FontAwesome';
 // import {postFetch} from '../../network/NetworkTools';
 // import {requestNetworkForGuider} from '../../network/NetworkAPI'
-
+import { NavigationActions } from 'react-navigation';
 
 const {width, height}=Dimensions.get('window');
+
+
+const resetActions = NavigationActions.reset({
+  index: 0,
+  actions: [NavigationActions.navigate({routeName: 'Login'})]
+})
+
 
 export default class Tab3 extends Component {
   constructor(props){
@@ -30,7 +37,7 @@ export default class Tab3 extends Component {
         {title: 'Storage存储'},
         {title: '调用原生组件'},
         {title: '拆分技巧'},
-        {title: 'f'},
+        {title: '登录'},
       ]
     };
   }
@@ -54,6 +61,11 @@ export default class Tab3 extends Component {
       break;
     case 4:
       return navigation.navigate('CommonSplist', {title: item.title});
+    case 5:
+      //跳转登录界面.
+      // this.props.navigation.dispatch(resetActions);
+      return navigation.navigate('Login', {title: item.title});
+      // break;
     default:
       //这里,将数组中的key值传递到下一页(Tab2Detail).
       // return navigation.navigate('FetchRequest', {name: item.title});

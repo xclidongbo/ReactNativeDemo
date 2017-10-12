@@ -9,6 +9,7 @@ import {
   FlatList,
   Dimensions,
   TouchableHighlight,
+  ScrollView
 } from 'react-native';
 
 export default class MarginAndPadding extends Component {
@@ -30,7 +31,7 @@ export default class MarginAndPadding extends Component {
 
   render(){
     return(
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         <Text>
           margin是外边距, padding是内边距,称为'留白'.通常两者展现的效果相同.
         </Text>
@@ -51,7 +52,7 @@ export default class MarginAndPadding extends Component {
           </Text>
 
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }

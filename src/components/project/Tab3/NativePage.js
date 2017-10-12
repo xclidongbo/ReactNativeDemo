@@ -36,26 +36,35 @@ class CustomButton extends Component {
 
 
 export default class NativePage extends Component {
-  static navigationOptions = ({ navigation }) => {
-    const { params } = navigation.state;
-    return {
-      title: params.title,
-      tabBarVisible: false,
-      headerRight: (
-        <View>
-          <Button
-            title='跳转原生VC'
-            onPress={()=>{
-              // console.log(1111);
-              //调用原生的跳转方法.
-              var FirstVCManager = NativeModules.FirstVCManager;
-              FirstVCManager.pushViewController('FirstVCManager');
-            }}
-          />
-        </View>
-      )
-    };
-  };
+  static navigationOptions = ({ navigation }) => ({
+    title: navigation.state.params.title,
+    tabBarVisible: false,
+    headerRight: (
+      <View>
+        <Button
+          title='跳转原生VC'
+          onPress={()=>{
+            // console.log(1111);
+            //调用原生的跳转方法.
+            var FirstVCManager = NativeModules.FirstVCManager;
+            FirstVCManager.pushViewController('FirstVCManager');
+          }}
+        />
+      </View>
+    )
+  });
+  // {
+  //   const { params } = navigation.state;
+  //   // console.log('调用111111');
+  //
+  //   return {
+  //     title: params.title,
+  //     tabBarVisible: false,
+  //
+  //     // headerTitle:navigation.state.params?navigation.state.params.title:null,
+  //   };
+  // };
+
 
   constructor(props){
     super(props);

@@ -8,6 +8,7 @@ import {
   View,
   Image,
   Dimensions,
+  TouchableOpacity
 } from 'react-native';
 import {
   TabNavigator,
@@ -30,8 +31,30 @@ import StoragePage from './Tab3/StoragePage';
 import NativePage from './Tab3/NativePage';
 import CommonSplist from './Tab3/CommonSplit';
 import getSlideFromRightTransition from 'react-navigation-slide-from-right-transition';
+import Login from './Login/Login';
 
 var {width} = Dimensions.get('window');
+
+
+
+// const Nav3Stack = StackNavigator({
+//   Nav3: {
+//     screen: Tab3,
+//     navigationOptions: {
+//       headerTitle: 'Demo',
+//       // header: null
+//     }
+//   },
+//   Login: {
+//     screen: Login,
+//     navigationOptions: {
+//       headerTitle: 'Login',
+//       // header: null
+//     }
+//   }
+// },{
+//   mode: 'modal'
+// })
 
 const Nav1 = StackNavigator({
   Nav1: {
@@ -65,41 +88,58 @@ const Nav2 = StackNavigator({
 },{
   transitionConfig: getSlideFromRightTransition
 });
-const Nav3 = StackNavigator({
-  Nav2: {
+
+const NavStack3 = StackNavigator({
+  Nav3: {
     screen: Tab3,
     navigationOptions: {
       headerTitle: 'Demo',
+      headerStyle: {backgroundColor:'#4ECBFC'},
+      headerTitleStyle : {fontSize: 20,
+          color:'white',fontWeight:'500',alignSelf:'center'}
     }
   },
   FetchRequest: {
     screen: FetchRequest,
+    navigationOptions: ({navigation})=>StackOptions({navigation})
   },
   MarginAndPadding: {
     screen: MarginAndPadding,
+    navigationOptions: ({navigation})=>StackOptions({navigation})
   },
   StoragePage: {
     screen: StoragePage,
+    navigationOptions: ({navigation})=>StackOptions({navigation})
   },
   NativePage: {
     screen: NativePage,
     // navigationOptions: {
     //   tabBarVisible: false,
     // }
+    navigationOptions: ({navigation})=>StackOptions({navigation})
   },
   CommonSplist: {
-    screen: CommonSplist
+    screen: CommonSplist,
+    navigationOptions: ({navigation})=>StackOptions({navigation})
+  },
+},{
+  // headerMode: 'none'
+})
+
+const Nav3 = StackNavigator({
+  Nav3: {
+    screen: NavStack3,
+  },
+  Login: {
+    screen: Login,
   }
-},
-// {
-//   mode: 'modal',
-// }
-{
-  transitionConfig: getSlideFromRightTransition
-}
-);
+},{
+  mode: 'modal',
+  // transitionConfig: getSlideFromRightTransition,
+  headerMode: 'none'
+});
 const Nav4 = StackNavigator({
-  Nav2: {
+  Nav4: {
     screen: Tab4,
     navigationOptions: {
       headerTitle: '标签1',
@@ -116,7 +156,39 @@ const IconName = (iconName, tintColor)=>{
 const StackOptions = ({navigation})=>{
   let {state, goBack} = navigation;
 
+  const headerStyle = {backgroundColor:'#4ECBFC'};
+
+  const headerTitle = state.params ? state.params.title : state.routeName;
+
+  const headerTitleStyle = {fontSize: 20,
+      color:'white',fontWeight:'500',alignSelf:'center'}//paddingTop:Android? 17: null,
+  const headerBackTitle = false;
+
+  const headerLeft = (
+    <TouchableOpacity
+      onPress={()=>{goBack()}}>
+      <Icon
+        name='arrow-left'
+        size={30}
+        color='#999'
+        style={{marginLeft:12}}
+      />
+    </TouchableOpacity>);
+
+  // let headerRight;
+  // console.log('检测右button: '+ JSON.stringify(state.params));
+  // if (state.params?state.params.headerRight:null){
+  //   headerRight = state.params.headerRight;
+  // }
+
+  let header;
+  if (state.params ? state.params.isVisible === true : null){
+    header = null;
+  }
+  return {headerStyle,headerTitle,headerTitleStyle,headerBackTitle,header,headerLeft}
 }
+
+
 
 export const MainTabs = TabNavigator({
   Tab1: {
